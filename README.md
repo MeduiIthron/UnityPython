@@ -7,10 +7,10 @@ Special thanks to the developers of IronPython who developed the open-source int
 Install .unitypackage in your project
 Then, go to Edit > Project Settings > Player > Other Settings > Configuration and change Scripting Runtime Version to "Experimental (.NET 4.6 Equivalent)"
 
-##Usage##
+## Usage
 An example is provided below. More examples can be found in the Example/ folder
 
-```
+```cs
 using UnityEngine;
 using UnityPython;
 
@@ -26,5 +26,5 @@ public class TestPythonClass : MonoBehaviour
 }
 ```
 
-##Information##
+## Information
 Current Python version :: IronPython 2.7.9

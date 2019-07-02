@@ -1,9 +1,9 @@
-﻿#UnityPython#
+﻿# UnityPython
 
 UnityPython is a plugin for Unity3D that provides support for running Python code in Unity Projects
 Special thanks to the developers of IronPython who developed the open-source integration of Python and .NET, which this plugin uses
 
-##Setup##
+## Setup
 Install .unitypackage in your project
 Then, go to Edit > Project Settings > Player > Other Settings > Configuration and change Scripting Runtime Version to "Experimental (.NET 4.6 Equivalent)"
 

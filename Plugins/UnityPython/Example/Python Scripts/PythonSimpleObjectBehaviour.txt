@@ -1,0 +1,12 @@
+"""
+    UnityPython Examples
+    Simple Python Implementation of MonoBehaviour
+"""
+
+import UnityEngine.Vector3 as Vector3
+import UnityEngine.Time as Time
+
+rotationSpeed = 2
+
+def Update(value):
+    value.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime)

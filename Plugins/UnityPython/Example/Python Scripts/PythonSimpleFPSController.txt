@@ -1,0 +1,49 @@
+"""
+    UnityPython Examples
+    Simple Python Implementation of First Preson Controller
+"""
+
+import UnityEngine.Vector3 as Vector3
+import UnityEngine.Time as Time
+import UnityEngine.Input as Input
+import UnityEngine.Mathf as Mathf
+
+motionSpeed = 6.0
+motionGravity  = -9.8
+
+sensitivityHor = 9
+sensitivityVert = 9
+
+minimumVert = -45.0
+maximumVert = 45.0
+
+this = None
+controller = None
+
+rotationX = 0
+
+def Initialize(value):
+	this = value
+
+def Awake(value):
+    this = value
+
+def Start(value):
+	this = value
+
+def Update(value):
+    global rotationX
+    rotationX -= Input.GetAxis("Mouse Y")  * sensitivityVert
+    rotationX = Mathf.Clamp(rotationX, minimumVert, maximumVert)
+
+    delta = Input.GetAxis("Mouse X") * sensitivityHor
+    rotationY = value.transform.localEulerAngles.y + delta
+    value.transform.localEulerAngles = Vector3(rotationX, rotationY, 0)
+
+    deltaX = Input.GetAxis("Horizontal") * motionSpeed
+    deltaZ = Input.GetAxis("Vertical") * motionSpeed
+    movement = Vector3(deltaX, 0, deltaZ)
+    movement.y = motionGravity
+    movement *= Time.deltaTime
+    movement = value.transform.TransformDirection(movement)
+    value.characterController.Move(movement)
